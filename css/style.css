@@ -108,26 +108,81 @@ height: 100%;
     position: fixed;
     top: 50%; 
     left: 50%; 
-    background-color: red;
+    background-color: #f2f2f2;
     transform: translate(-50%,-50%);
     display: flex;
+    border-top: 20px groove rgb(124, 124, 130);
+}
+.modal .close-icon{
+   position: absolute;
+   right :0;
+   top:-25px;
+   font-size:25px;
+   color:white;
+
+
+
 }
 .left-modal{
     width: 30%;
     height: 100%;
-    background-color: aquamarine;
+    background-color: #f2f2f2;
     
 }
 .left-modal .img-box{
     display: flex;
     width: 100%;
     height:300px;
-    background-color: rgb(38, 95, 95);
+    
+    position: relative;
+}
+.left-modal .img-box i{
+    padding:10px;
+    position: absolute;
+    font-size: 30px;
+    right:40px;
+    top:60px;
+}
+.left-modal .img-box input{
+    
+    position: absolute;
+    font-size: 30px;
+    right:40px;
+    top:60px;
 }
 .left-modal .img-box img{
     border-radius: 20px;
 }
 .right-modal{
     width: 70%;
-    background-color: blue;
+    border-left: 5px dashed #9a1f1f;
+}
+.right-modal .input-box {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-modal .input-box label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.right-modal .input-box input{
+   width: 60%;
+    border: none;
+    padding: 8px;
+    outline: none;
+    border-bottom: 3px solid rgb(164, 127, 127);
+}
+.right-modal .input-box button{
+    width: 40%;
+    border: none;
+    outline:none;
+     background-color: #007da7;
+     color:#f2f2f2;
+     font-size:13px;
+     margin: 15px 10px ;
+     padding: 13px;
+
 }
