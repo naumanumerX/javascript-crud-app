@@ -112,6 +112,13 @@ height: 100%;
     transform: translate(-50%,-50%);
     display: flex;
     border-top: 20px groove rgb(124, 124, 130);
+    opacity: 0;
+    z-index: -1;
+}
+ .active{
+    opacity: 1;
+    z-index: 1;
+    width: 60%;
 }
 .modal .close-icon{
    position: absolute;
@@ -149,6 +156,7 @@ height: 100%;
     font-size: 30px;
     right:40px;
     top:60px;
+    opacity: 0;
 }
 .left-modal .img-box img{
     border-radius: 20px;
