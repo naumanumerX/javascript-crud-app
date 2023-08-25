@@ -18,7 +18,8 @@ let lname=document.querySelector("#lname");
 let ni=document.querySelector("#ni");
 let address=document.querySelector("#address");
 let email=document.querySelector("#email");
-let userInformation=[];
+let userInformation=[]; // This aray will save data to local storage
+let userData=[];// This array will get data from local storage
 let formRegistration=document.querySelector("#form-registration");
 
 //End of Global varaibales
@@ -32,6 +33,12 @@ regBtn.onclick=function(e){
     closeBtn.click();
 
 }
+if(localStorage.getItem("User Data")!= null)
+{
+userData=JSON.parse(localStorage.getItem("User Data"));
+
+}
+console.log(userData);  
 
 const registrationData= ()=>{
     userInformation.push({
@@ -43,7 +50,7 @@ const registrationData= ()=>{
         email:email.value
 
     })
-    console.log(userInformation);
+    
   const userDataString=JSON.stringify(userInformation);
   console.log(userDataString);
   localStorage.setItem("User Data",userDataString);
