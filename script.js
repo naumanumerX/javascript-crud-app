@@ -29,8 +29,13 @@ let formRegistration=document.querySelector("#form-registration");
 regBtn.onclick=function(e){
     e.preventDefault();
     registrationData();
+
+    getDataFromLocalStorage();
+ userInformation = [];
+
     formRegistration.reset(' ');
     closeBtn.click();
+
 
 }
 if(localStorage.getItem("User Data")!= null)
@@ -41,10 +46,10 @@ userData=JSON.parse(localStorage.getItem("User Data"));
 console.log(userData);  
 
 const registrationData= ()=>{
-    userInformation.push({
+    userData.push({
         id:id.value,
         fname:fname.value,
-        lname:lname.value,
+        profilepic:"images/avatar.jpg",
         ni:ni.value,
         address:address.value,
         email:email.value
@@ -55,3 +60,31 @@ const registrationData= ()=>{
   console.log(userDataString);
   localStorage.setItem("User Data",userDataString);
 }
+  
+const tableData = document.querySelector("#table-data");
+
+const getDataFromLocalStorage = () => {
+    tableData.innerHTML=" ";
+  userData.forEach((data,index) => {
+    tableData.innerHTML += `
+
+        <tr index='{index}'>
+            <td>${index+1}</td>
+            <td>${data.fname}</td>
+            <td><img src="images/avatar.jpg" width="40px" height="40px"></td>
+            
+            <td>${data.ni}</td>
+            <td>${data.address}</td>
+            <td>${data.email}</td>  
+            
+            <td>
+            <button><i class="fa fa-eye"></i></button>
+            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
+       
+
+            </td>  
+</tr>
+        `;
+  });
+};
+
