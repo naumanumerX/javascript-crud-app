@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,6 @@
     <title>CRUD</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
 </head>
 <body>
     <div class="header">
@@ -24,121 +24,75 @@
     </div>
     </div>
     <div class="table-box">
-        <table>
+        <table >
         <tr>
             <th>ID</th>
-            <th>First ame</th>
-            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Profile</th>
+            <th>NI  </th>
+            
+            <th>Adresss</th>
             <th>Email</th>
-            <th>Contact no</th>
-            <th>Hours Allowed/Per Week</th>
-            <th>Hours Completed/Per Week</th>
+            
+          
             <th>Action</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-          
-          
-         
-            
-           
-            <td>Hello</td>
-            <td><button><i class="fa fa-eye"></i></button>
-            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-          
-         
-            
-           
-            <td>Hello</td>
-            <td><button><i class="fa fa-eye"></i></button>
-            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-          
-         
-            
-           
-            <td>Hello</td>
-            <td><button><i class="fa fa-eye"></i></button>
-            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-          
-         
-            
-           
-            <td>Hello</td>
-            <td><button><i class="fa fa-eye"></i></button>
-            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
-        </tr>
+        <tbody id="table-data">
+
+        </tbody>
+
     </table>
     </div>
 <div class="modal ">
     <i class="fa fa-times-circle close-icon "></i>
     <div class="left-modal">
         <div class="img-box">
-            <img src="images/avatar.jpg" width="150px" height="150 px" alt="">
+            <img src="images/avatar.jpg" id="profile-pic"width="150px" height="150 px" alt="">
             <i class="fa fa-plus"></i>
-            <input type="file" name="" id="">
+            <input type="file" name="" id="upload-field">
         </div>
     </div>
     <div class="right-modal">
+       <form id="form-registration">
         <div class="input-box">
             <label for="id">ID</label>
-            <input type="text" id="id">
+            <input type="text" required id="id">
         </div>
         <div class="input-box">
             <label for="fname">First Name</label>
-            <input type="text" id="fname">
+            <input type="text" required id="fname">
         </div>
         <div class="input-box">
             <label for="lname">Last Name</label>
-            <input type="text" id="lname">
+            <input type="text" required id="lname">
         </div>
         <div class="input-box">
             <label for="NI">NI Number</label>
-            <input type="text" id="id">
+            <input type="text"required id="ni">
         </div>
         <div class="input-box">
             <label for="address">Address</label>
-            <input type="address" id="address">
+            <input type="address" required id="address">
         </div>
         <div class="input-box">
             <label for="Email  ">Email</label>
-            <input type="email" id="email" required>
+            <input type="email" required id="email" required>
         </div>
 
        <div class="input-box">
-        <button >Register</button>
+        <button id="register-btn" >Register</button>
         <button style="background-color: rgb(172, 23, 23);">Update</button>
-       </div>   
+       </div>
+       </form>   
 
     </div>
     
     
 </div>
-    <script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!-- Load your custom script -->
+<script src="script.js"></script>
+
 </body>
 </html>
+
