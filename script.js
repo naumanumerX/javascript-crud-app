@@ -21,12 +21,12 @@ let email=document.querySelector("#email");
 let userInformation=[]; // This aray will save data to local storage
 let userData=[];// This array will get data from local storage
 let formRegistration=document.querySelector("#form-registration");
-
+let imageUrl;
 //End of Global varaibales
 
 //Register Code
 
-regBtn.onclick=function(e){
+formRegistration.onsubmit=function(e){
     e.preventDefault();
     registrationData();
 
@@ -49,7 +49,7 @@ const registrationData= ()=>{
     userData.push({
         id:id.value,
         fname:fname.value,
-        profilepic:"images/avatar.jpg",
+        profilepic: imageUrl==undefined ?"images/avatar.jpg":imageUrl,
         ni:ni.value,
         address:address.value,
         email:email.value
@@ -71,7 +71,7 @@ const getDataFromLocalStorage = () => {
         <tr index='{index}'>
             <td>${index+1}</td>
             <td>${data.fname}</td>
-            <td><img src="images/avatar.jpg" width="40px" height="40px"></td>
+            <td><img src="${data.profilepic}" width="40px" height="40px"></td>
             
             <td>${data.ni}</td>
             <td>${data.address}</td>
@@ -87,4 +87,25 @@ const getDataFromLocalStorage = () => {
         `;
   });
 };
+getDataFromLocalStorage();
+    
+// users can upload  image
+var profile_pic=document.querySelector("#profile-pic");
+var upload_pic=document.querySelector("#upload-field");
+upload_pic.addEventListener("change", function() {
+    if(upload_pic.files[0].size < 1000000){
 
+        let fReader=new FileReader();
+        fReader.onload= function(e){
+             imageUrl=e.target.result;
+            profile_pic.src=imageUrl;
+            //console.log(imageUrl);
+        }
+        fReader.readAsDataURL(upload_pic.files[0])
+
+    }
+    
+    else{
+        console.log("Error : Please upload a picture that is less than 1Mb");
+    }
+});
