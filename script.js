@@ -1,3 +1,4 @@
+
 let addEmp=document.querySelector(".add-Emp");
 let modal=document.querySelector(".modal");
 let closeBtn=document.querySelector(".close-icon")
@@ -34,7 +35,9 @@ formRegistration.onsubmit=function(e){
  userInformation = [];
 
     formRegistration.reset(' ');
+
     closeBtn.click();
+    
 
 
 }
@@ -59,6 +62,11 @@ const registrationData= ()=>{
   const userDataString=JSON.stringify(userInformation);
   console.log(userDataString);
   localStorage.setItem("User Data",userDataString);
+  Swal.fire(
+    'Good job!',
+    'Registration Successfull!',
+    'success'
+  )
 }
   
 const tableData = document.querySelector("#table-data");
@@ -79,13 +87,29 @@ const getDataFromLocalStorage = () => {
             
             <td>
             <button><i class="fa fa-eye"></i></button>
-            <button style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
+            <button  id="myButton"  style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
        
 
             </td>  
 </tr>
         `;
   });
+  deleteBtn=document.getElementsByClassName("del-btn");
+  for(let i =0;i<deleteBtn.length;i++){
+  deleteBtn[i].addEventListener("click",()=>{
+    let tr=this.parentElement;
+ 
+    console.log("tr",tr);
+  })
+}
+// document.addEventListener("DOMContentLoaded", function() {
+//     var button = document.getElementById("myButton"); // Assuming you have an element with the ID "myButton"
+//     button.addEventListener("click", function() {
+//         var tr = this.parentElement;
+//         console.log(tr); // Check if tr is defined or not
+//     });
+// });
+
 };
 getDataFromLocalStorage();
     
