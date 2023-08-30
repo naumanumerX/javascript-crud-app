@@ -2,6 +2,8 @@
 let addEmp=document.querySelector(".add-Emp");
 let modal=document.querySelector(".modal");
 let closeBtn=document.querySelector(".close-icon")
+
+
 addEmp.addEventListener("click",()=>{
 
     modal.classList.add("active")
@@ -71,12 +73,14 @@ const registrationData= ()=>{
   
 const tableData = document.querySelector("#table-data");
 
-const getDataFromLocalStorage = () => {
-    tableData.innerHTML=" ";
-  userData.forEach((data,index) => {
-    tableData.innerHTML += `
 
-        <tr index='{index}'>
+
+const getDataFromLocalStorage = () => {
+    tableData.innerHTML = "";
+    userData.forEach((data, index) => {
+        tableData.innerHTML += `
+
+        <tr index='${index}'>
             <td>${index+1}</td>
             <td>${data.fname}</td>
             <td><img src="${data.profilepic}" width="40px" height="40px"></td>
@@ -87,30 +91,32 @@ const getDataFromLocalStorage = () => {
             
             <td>
             <button><i class="fa fa-eye"></i></button>
-            <button  id="myButton"  style="background-color: rgb(150, 31, 31);"><i class="fa fa-trash"></i></button></td>
+            <button  class="del-btn"    style="background-color: rgb(150, 31, 31);"><i  class="fa fa-trash"></i></button></td>
        
 
             </td>  
 </tr>
         `;
-  });
-  deleteBtn=document.getElementsByClassName("del-btn");
-  for(let i =0;i<deleteBtn.length;i++){
-  deleteBtn[i].addEventListener("click",()=>{
-    let tr=this.parentElement;
- 
-    console.log("tr",tr);
-  })
-}
-// document.addEventListener("DOMContentLoaded", function() {
-//     var button = document.getElementById("myButton"); // Assuming you have an element with the ID "myButton"
-//     button.addEventListener("click", function() {
-//         var tr = this.parentElement;
-//         console.log(tr); // Check if tr is defined or not
-//     });
-// });
 
+        let i = 0;
+        deleteBtn = document.querySelectorAll(".del-btn");
+        for (i = 0; i < deleteBtn.length; i++) {
+            deleteBtn[i].onclick = function () {
+                let tr = this.parentElement.parentElement;
+
+                let id = tr.getAttribute("index");
+                userData.splice(id, 1);
+
+                // Define userDataString here before updating local storage
+                const userDataString = JSON.stringify(userData);
+
+                localStorage.setItem("User Data", userDataString);
+                tr.remove();
+            };
+        }
+    });
 };
+
 getDataFromLocalStorage();
     
 // users can upload  image
